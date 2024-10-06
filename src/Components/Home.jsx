@@ -1,16 +1,16 @@
-import React from 'react'
-import Navbar from './Navbar'
-import Homeone from './Homeone'
-import Footer from './Footer'
+import React from "react";
+import Heropage from "../Components/Heropage/Heropage";
+import Homeone from "./Homeone";
+import Preloader from "./Preloader/Preloader";
 const Home = () => {
   return (
     <div>
-      {/* <Navbar />
-      <Homeone />
-      <Footer /> */}
+      <Heropage />
+      <Preloader />
+
       <Homeone />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
