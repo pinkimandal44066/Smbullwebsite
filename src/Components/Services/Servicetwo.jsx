@@ -1,29 +1,24 @@
-
-
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 const CombinedComponent = () => {
- 
   const imageSet1 = [
     "https://img.freepik.com/free-photo/digital-art-style-illustration-river-nature_23-2151825741.jpg",
     "https://img.freepik.com/free-photo/digital-art-style-river-nature-landscape_23-2151825803.jpg",
     "https://img.freepik.com/free-photo/digital-art-style-river-nature-landscape_23-2151825812.jpg",
   ];
-  
+
   const imageSet2 = [
     "https://img.freepik.com/free-photo/digital-art-style-river-nature-landscape_23-2151825802.jpg",
     "https://img.freepik.com/free-photo/digital-art-style-illustration-river-nature_23-2151825739.jpg",
     "https://img.freepik.com/free-photo/digital-art-style-river-nature-landscape_23-2151825810.jpg",
   ];
 
-  
   const [currentImageIndex1, setCurrentImageIndex1] = useState(0);
   const [currentImageIndex2, setCurrentImageIndex2] = useState(0);
 
   useEffect(() => {
-    // Initialize AOS animations
     AOS.init({
       duration: 1000,
       easing: "ease-in-out",
@@ -32,76 +27,73 @@ const CombinedComponent = () => {
     });
 
     const handleScroll = () => {
-      AOS.refresh(); // Refresh AOS on scroll
+      AOS.refresh();
     };
 
     window.addEventListener("scroll", handleScroll);
 
-    // Cleanup event listener on unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   useEffect(() => {
-    // Automatically change images every 5 seconds
     const interval1 = setInterval(() => {
       setCurrentImageIndex1((prevIndex) => (prevIndex + 1) % imageSet1.length);
       setCurrentImageIndex2((prevIndex) => (prevIndex + 1) % imageSet2.length);
-    }, 5000); // Change image every 5 seconds
+    }, 5000);
 
     return () => {
-      clearInterval(interval1); // Clear interval on component unmount
+      clearInterval(interval1);
     };
   }, []);
 
   return (
-<>
-<div
-      className="flex flex-col lg:flex-row items-center justify-between py-12 px-6 bg-white"
-      data-aos="fade-right"
-    >
-      <div className="lg:w-1/2 max-w-lg lg:mx-20">
-        <h2 className="text-4xl font-bold mb-4">Join Our Influencer Network</h2>
-        <p className="text-lg font-medium mb-2">
-          Looking for opportunities to collaborate with top brands?
-        </p>
-        <p className="text-gray-600 mb-6">
-          Connect with leading brands, get exclusive deals, and grow your
-          audience with our influencer platform designed to bring creators and
-          businesses together.
-        </p>
-        <button className="bg-gradient-to-r from-pink-500 to-purple-500 text-white py-3 px-6 rounded-full text-lg font-semibold shadow-lg">
-          GET STARTED TODAY
-        </button>
+    <>
+      <div
+        className="flex flex-col lg:flex-row items-center justify-between py-12 px-6 bg-white"
+        data-aos="fade-right"
+      >
+        <div className="lg:w-1/2 max-w-lg lg:mx-20">
+          <h2 className="text-4xl font-bold mb-4">
+            Join Our Influencer Network
+          </h2>
+          <p className="text-lg font-medium mb-2">
+            Looking for opportunities to collaborate with top brands?
+          </p>
+          <p className="text-gray-600 mb-6">
+            Connect with leading brands, get exclusive deals, and grow your
+            audience with our influencer platform designed to bring creators and
+            businesses together.
+          </p>
+          <button className="bg-gradient-to-r from-pink-500 to-purple-500 text-white py-3 px-6 rounded-full text-lg font-semibold shadow-lg">
+            GET STARTED TODAY
+          </button>
+        </div>
+
+        <div
+          className="relative lg:w-1/2 mt-10 lg:mt-0 flex items-center justify-center"
+          data-aos="fade-left"
+        >
+          <div className="relative w-48 h-72 rounded-2xl overflow-hidden shadow-lg">
+            <img
+              src={imageSet1[currentImageIndex1]}
+              alt="Influencer 1"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          <div className="relative w-48 h-72 -ml-6 mt-16 rounded-2xl overflow-hidden shadow-lg">
+            <img
+              src={imageSet2[currentImageIndex2]}
+              alt="Influencer 2"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
       </div>
 
       <div
-        className="relative lg:w-1/2 mt-10 lg:mt-0 flex items-center justify-center"
-        data-aos="fade-left"
-      >
-        {/* First Image that will auto-change */}
-        <div className="relative w-48 h-72 rounded-2xl overflow-hidden shadow-lg">
-          <img
-            src={imageSet1[currentImageIndex1]} // Use the current image from set 1
-            alt="Influencer 1"
-            className="w-full h-full object-cover"
-          />
-        </div>
-
-        {/* Second Image that will auto-change */}
-        <div className="relative w-48 h-72 -ml-6 mt-16 rounded-2xl overflow-hidden shadow-lg">
-          <img
-            src={imageSet2[currentImageIndex2]} // Use the current image from set 2
-            alt="Influencer 2"
-            className="w-full h-full object-cover"
-          />
-        </div>
-      </div>
-    </div>
-
-
-    <div
         className="bg-gradient-to-br 
         from-[#ff6a6a] 
         via-[#a6c465] 
@@ -171,58 +163,78 @@ const CombinedComponent = () => {
         </div>
       </div>
 
+      <div className="bg-pink-100 py-12">
+        <div className="text-center mb-8" data-aos="fade-up">
+          <h2 className="text-2xl lg:text-3xl font-bold text-gray-900">
+            What Our Clients Say About Us
+          </h2>
+          <p className="text-lg text-gray-700 mt-4 lg:mx-32 mx-4">
+            We’ve helped brands globally enhance their influencer marketing
+            strategies, driving impactful results. Here's what they have to say.
+          </p>
+        </div>
 
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div
+            className="bg-white p-6 rounded-lg shadow-lg"
+            data-aos="fade-up"
+            data-aos-delay="0"
+          >
+            <img
+              src="https://img.freepik.com/free-photo/landscape-morning-fog-mountains-with-hot-air-balloons-sunrise_335224-794.jpg?ga=GA1.1.2000051094.1716005427&semt=ais_hybrid"
+              alt="Influencer Marketing Trends"
+              className="mb-4 w-full h-40 object-cover rounded-md"
+            />
+            <h3 className="text-xl font-semibold text-gray-900">
+              Top Influencer Marketing Trends in 2023
+            </h3>
+            <p className="text-gray-700 mt-2">
+              Learn how leading brands are leveraging the latest trends to
+              maximize their influencer marketing efforts and engage their
+              audiences effectively.
+            </p>
+          </div>
 
-  
+          <div
+            className="bg-white p-6 rounded-lg shadow-lg"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <img
+              src="https://img.freepik.com/free-photo/photorealistic-tree-with-branches-trunk-outside-nature_23-2151478142.jpg?ga=GA1.1.2000051094.1716005427&semt=ais_hybrid"
+              alt="ROI Case Study"
+              className="mb-4 w-full h-40 object-cover rounded-md"
+            />
+            <h3 className="text-xl font-semibold text-gray-900">
+              Maximizing ROI: Influencer Marketing Success Story
+            </h3>
+            <p className="text-gray-700 mt-2">
+              Discover how a global beauty brand optimized its influencer
+              campaigns, increasing ROI by 68% in six months.
+            </p>
+          </div>
 
-
-
-
-
-
-
-
-
-    <div className="bg-pink-100 py-12">
-  <div className="text-center mb-8" data-aos="fade-up">
-    <h2 className="text-2xl lg:text-3xl font-bold text-gray-900">
-      What Our Clients Say About Us
-    </h2>
-    <p className="text-lg text-gray-700 mt-4 lg:mx-32 mx-4">
-      We’ve helped brands globally enhance their influencer marketing strategies, driving impactful results. Here's what they have to say.
-    </p>
-  </div>
-
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-
-    <div className="bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="0">
-      <img src="https://img.freepik.com/free-photo/landscape-morning-fog-mountains-with-hot-air-balloons-sunrise_335224-794.jpg?ga=GA1.1.2000051094.1716005427&semt=ais_hybrid" alt="Influencer Marketing Trends" className="mb-4 w-full h-40 object-cover rounded-md" />
-      <h3 className="text-xl font-semibold text-gray-900">Top Influencer Marketing Trends in 2023</h3>
-      <p className="text-gray-700 mt-2">
-        Learn how leading brands are leveraging the latest trends to maximize their influencer marketing efforts and engage their audiences effectively.
-      </p>
-    </div>
-
-
-    <div className="bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100">
-      <img src="https://img.freepik.com/free-photo/photorealistic-tree-with-branches-trunk-outside-nature_23-2151478142.jpg?ga=GA1.1.2000051094.1716005427&semt=ais_hybrid" alt="ROI Case Study" className="mb-4 w-full h-40 object-cover rounded-md" />
-      <h3 className="text-xl font-semibold text-gray-900">Maximizing ROI: Influencer Marketing Success Story</h3>
-      <p className="text-gray-700 mt-2">
-        Discover how a global beauty brand optimized its influencer campaigns, increasing ROI by 68% in six months.
-      </p>
-    </div>
-
-    <div className="bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
-      <img src="https://img.freepik.com/premium-photo/wallpaper-illustration_1037184-76993.jpg?ga=GA1.1.2000051094.1716005427&semt=ais_hybrid" alt="Strategic Partnerships" className="mb-4 w-full h-40 object-cover rounded-md" />
-      <h3 className="text-xl font-semibold text-gray-900">Building Strategic Partnerships with Influencers</h3>
-      <p className="text-gray-700 mt-2">
-        See how we helped brands form long-term partnerships with influencers, increasing brand loyalty and customer engagement.
-      </p>
-    </div>
-  </div>
-</div>
-
-</>
+          <div
+            className="bg-white p-6 rounded-lg shadow-lg"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <img
+              src="https://img.freepik.com/premium-photo/wallpaper-illustration_1037184-76993.jpg?ga=GA1.1.2000051094.1716005427&semt=ais_hybrid"
+              alt="Strategic Partnerships"
+              className="mb-4 w-full h-40 object-cover rounded-md"
+            />
+            <h3 className="text-xl font-semibold text-gray-900">
+              Building Strategic Partnerships with Influencers
+            </h3>
+            <p className="text-gray-700 mt-2">
+              See how we helped brands form long-term partnerships with
+              influencers, increasing brand loyalty and customer engagement.
+            </p>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 

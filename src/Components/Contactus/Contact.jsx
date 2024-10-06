@@ -32,24 +32,7 @@ const ContactPage = () => {
 
   return (
     <div className="bg-gray-50 ">
-      {/* <section id="banner" className="relative h-64 md:h-80 lg:h-96">
-        <img
-          src="https://img.freepik.com/free-photo/flat-lay-top-view-office-table-desk-workspace-background_1150-6719.jpg?ga=GA1.1.2000051094.1716005427&semt=ais_hybrid"
-          alt="Contact Us Banner"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black flex items-center justify-center text-center">
-          <div
-            data-aos="fade-up"
-            className="text-white p-6 bg-black bg-opacity-50 rounded-lg"
-          >
-            <h1 className="text-3xl md:text-5xl font-bold mb-2">Contact Us</h1>
-            <p className="text-lg md:text-xl">
-              We’d love to hear from you. Reach out to us with any inquiries.
-            </p>
-          </div>
-        </div>
-      </section> */}
+     
 
 
       <div className="relative h-[400px]"> 

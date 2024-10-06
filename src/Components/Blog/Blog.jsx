@@ -2,9 +2,7 @@ import React from "react";
 import img1 from "../../../public/Images/img1.avif";
 import img2 from "../../../public/Images/img2.avif";
 import img3 from "../../../public/Images/img3.avif";
-// import Photo1 from "../../public/Images/photo1.jpeg";
-// import Photo2 from "../../public/Images/photo2.jpeg";
-// import Photo3 from "../../public/Images/photo3.jpeg";
+
 import { Bounce, Zoom, Slide, Fade, Roll } from "react-awesome-reveal";
 import "./Blog.css";
 import Blogtwo from "../Blog/Blogtwo";

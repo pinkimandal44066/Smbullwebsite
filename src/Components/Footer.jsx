@@ -1,14 +1,3 @@
-// import React from 'react'
-
-// const Footer = () => {
-//   return (
-//     <div>
-//       bbbbbbbbbbbbbbbb
-//     </div>
-//   )
-// }
-
-// export default Footer
 import React from "react";
 import { NavLink } from "react-router-dom";
 
@@ -108,10 +97,7 @@ const Footer = () => {
                   </NavLink>
                 </li>
 
-              
-
-
-<li  className="text-lg hover:text-gray-400">
+                <li className="text-lg hover:text-gray-400">
                   <NavLink to="/career" className="text-lg hover:text-gray-400">
                     Careers
                   </NavLink>
