@@ -146,7 +146,7 @@ const Footer = () => {
               </form>
             </div>
 
-            <div className="flex-1">
+            <div className="flex-1 ">
               <h3 className="text-xl font-semibold mb-3">Follow Us</h3>
               <div className="flex space-x-4">
                 <a href="#" className="text-white hover:text-black text-3xl">
